@@ -68,7 +68,13 @@ namespace jsonDeneme.Controllers
             Response.ContentType = "text/xml";
 
             xml.Save(Response.Output);
+            xml.Save(Server.MapPath("~/data.xml"));
+            Response.ContentType = "text/xml";
+            Response.AppendHeader("Content-Disposition", "attachment; filename=data.xml");
+            Response.TransmitFile(Server.MapPath("~/data.xml"));
+            Response.End();
 
+           
             return new EmptyResult();
 
            // return RedirectToAction("Index");

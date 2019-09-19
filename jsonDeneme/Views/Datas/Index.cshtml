@@ -7,14 +7,23 @@
 <h2>Index</h2>
 @using (Html.BeginForm())
 {
-    @Html.Editor("quary", new { htmlAttributes = new { @class = "form-control" } })
-    // @Html.TextBox("quary")
-    <input type="submit" value="Create" class="btn btn-default" />
+    <h4> deneme</h4>
+    <p>
+
+        @Html.Editor("quary", new { htmlAttributes = new { @class = "form-control", @placeholder = "Json Urlsini giriniz" } })
+        <input type="submit" value="Veri Getir" class="btn btn-default" />
+      
+
+    </p>
+    
+    <br />
+
+    @Html.ActionLink("Verileri Xml Olarak İndir", "Getxml", null, new { @class = "btn btn-default", @type = "submit" })
 }
 <p>
     @*@Html.ActionLink("Create New", "Create")*@
 </p>
-@Html.ActionLink("GetXml", "Getxml")
+
 <table class="table">
     <tr>
         <th>
