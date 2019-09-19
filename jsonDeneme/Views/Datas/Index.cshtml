@@ -1,0 +1,46 @@
+﻿@model IEnumerable<jsonDeneme.Models.JsonDatas>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm())
+{
+    @Html.Editor("quary", new { htmlAttributes = new { @class = "form-control" } })
+    // @Html.TextBox("quary")
+    <input type="submit" value="Create" class="btn btn-default" />
+}
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+@Html.ActionLink("GetXml", "Getxml")
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.dataID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.dataID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.dataID })
+            </td>
+        </tr>
+    }
+
+</table>
